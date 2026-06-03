@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>رویدادلند — نظرسنجی</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+  <header class="navbar">
+    <div class="container nav-inner">
+
+      <!-- لوگو -->
+      <div class="logo">
+        <h2>رویدادلند</h2>
+      </div>
+
+      <!-- دکمه تغییر تم -->
+      <button id="themeToggle" class="btn-ghost" title="تغییر تم (تاریک/روشن)"
+        style="margin-right: auto; margin-left: 1rem; border: none; font-size: 1.5rem; padding: 0.5rem 0.75rem;">
+        🌙
+      </button>
+
+      <input type="checkbox" id="hamburger-toggle">
+      <label for="hamburger-toggle" class="hamburger-menu">☰</label>
+
+      <nav class="nav-links">
+        <a href="index.html">خانه</a>
+        <a href="events.html">رویدادها</a>
+        <a href="about.html">درباره ما</a>
+        <a href="survey.html">نظرسنجی</a>
+        <a href="login.html" class="btn-ghost active">ورود</a>
+        <a href="register.html" class="cta-primary">ثبت‌نام</a>
+      </nav>
+    </div>
+
+  </header>
+
+  <main class="container">
+    <section class="section">
+      <h1 class="section-title">فرم نظرسنجی رویدادها</h1>
+      <div class="form-container">
+        <form id="surveyForm">
+          <div class="form-group">
+            <label for="event-select">کدام رویداد را شرکت کردید؟</label>
+            <select id="event-select" name="event">
+              <option value="frontend">وبینار طراحی فرانت‌اند</option>
+              <option value="html-css">کارگاه HTML & CSS</option>
+              <option value="tech-conf">همایش بزرگ فناوری</option>
+              <option value="python">دوره مقدماتی پایتون</option>
+            </select>
+          </div>
+
+          <div class="form-group" id="ratingGroup">
+            <label>از کیفیت کلی رویداد چقدر راضی بودید؟</label>
+            <div class="radio-group">
+              <input type="radio" id="rate5" name="rating" value="5"><label for="rate5">عالی</label>
+              <input type="radio" id="rate4" name="rating" value="4"><label for="rate4">خوب</label>
+              <input type="radio" id="rate3" name="rating" value="3"><label for="rate3">متوسط</label>
+              <input type="radio" id="rate2" name="rating" value="2"><label for="rate2">ضعیف</label>
+            </div>
+            <div id="ratingError" class="error-message"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="user-email">ایمیل شما (الزامی)</label>
+            <input type="email" id="user-email" name="email">
+            <div id="emailError" class="error-message"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="user-name">نام شما (اختیاری)</label>
+            <input type="text" id="user-name" name="name">
+          </div>
+
+          <div class="form-group">
+            <label for="feedback-improve">پیشنهاد / انتقاد (الزامی)</label>
+            <textarea id="feedback-improve" name="improve" rows="4"></textarea>
+            <div id="commentError" class="error-message"></div>
+          </div>
+
+          <div id="formStatusMessage" style="text-align: center; margin: 1.5rem 0; font-weight: bold;"></div>
+
+          <button type="submit" class="cta-primary" style="width: 100%;">ارسال نظر</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container"
+      style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+      <div>© ۱۴۰۴ - همه حقوق برای رویدادلند محفوظ است.</div>
+      <div style="direction: ltr;">info@royaadeland.ir</div>
+    </div>
+  </footer>
+  <script src="survey.js"></script>
+  <script src="index.js"></script>
+
+</body>
+
+</html>

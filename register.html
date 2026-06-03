@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>رویدادلند — ثبت‌نام</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="container nav-inner">
+
+      <!-- لوگو -->
+      <div class="logo">
+        <h2>رویدادلند</h2>
+      </div>
+
+      <!-- دکمه تغییر تم -->
+      <button id="themeToggle" class="btn-ghost" title="تغییر تم (تاریک/روشن)"
+        style="margin-right: auto; margin-left: 1rem; border: none; font-size: 1.5rem; padding: 0.5rem 0.75rem;">
+        🌙
+      </button>
+
+      <input type="checkbox" id="hamburger-toggle">
+      <label for="hamburger-toggle" class="hamburger-menu">☰</label>
+
+      <nav class="nav-links">
+        <a href="index.html">خانه</a>
+        <a href="events.html">رویدادها</a>
+        <a href="about.html">درباره ما</a>
+        <a href="survey.html">نظرسنجی</a>
+        <a href="login.html" class="btn-ghost active">ورود</a>
+        <a href="register.html" class="cta-primary">ثبت‌نام</a>
+      </nav>
+    </div>
+
+  </header>
+
+
+  <main class="container">
+    <div class="form-container">
+
+      <!-- Tab Switcher -->
+      <div class="tab-switcher">
+        <button type="button" class="tab-btn active" data-target="student-register">دانشجو</button>
+        <button type="button" class="tab-btn" data-target="teacher-register">استاد</button>
+      </div>
+
+      <!-- Student Registration -->
+      <form id="student-register" class="tab-form active" method="POST" action="auth_register.php">
+
+        <input type="hidden" name="role" value="student">
+
+        <div class="form-group">
+          <label>نام و نام خانوادگی</label>
+          <input type="text" name="fullname" required>
+        </div>
+
+        <div class="form-group">
+          <label>ایمیل دانشگاهی</label>
+          <input type="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+          <label>رمز عبور</label>
+          <input type="password" name="password" required>
+        </div>
+
+        <div class="form-group">
+          <label>تکرار رمز عبور</label>
+          <input type="password" name="confirm_password" required>
+        </div>
+
+        <button type="submit" class="cta-primary">ثبت‌نام دانشجو</button>
+      </form>
+
+
+      <!-- Teacher Registration -->
+      <form id="teacher-register" class="tab-form" method="POST" action="auth_register.php">
+
+        <input type="hidden" name="role" value="teacher">
+
+        <div class="form-group">
+          <label>نام و نام خانوادگی</label>
+          <input type="text" name="fullname" required>
+        </div>
+
+        <div class="form-group">
+          <label>ایمیل دانشگاهی</label>
+          <input type="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+          <label>رمز عبور</label>
+          <input type="password" name="password" required>
+        </div>
+
+        <div class="form-group">
+          <label>تکرار رمز عبور</label>
+          <input type="password" name="confirm_password" required>
+        </div>
+
+        <button type="submit" class="cta-primary">ثبت‌نام استاد</button>
+      </form>
+
+
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container"
+      style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+      <div>© ۱۴۰۴ - همه حقوق برای رویدادلند محفوظ است.</div>
+      <div style="direction: ltr;">info@royaadeland.ir</div>
+    </div>
+  </footer>
+
+
+  <script>
+    // Tab switcher logic
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabForms = document.querySelectorAll('.tab-form');
+
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tabButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        tabForms.forEach(form => form.classList.remove('active'));
+        document.getElementById(btn.dataset.target).classList.add('active');
+      });
+    });
+  </script>
+
+
+  <script src="index.js"></script>
+
+</body>
+
+</html>

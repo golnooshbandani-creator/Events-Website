@@ -1,0 +1,932 @@
+/* =================================================================
+   IMPROVED & UNIFIED THEME BY GEMINI
+   Theme: Modern Dark Blue (RTL)
+   ================================================================= */
+
+/* --- FONT IMPORT --- */
+@import url('https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir.css');
+
+/* --- :ROOT VARIABLES (Palette & Config) --- */
+:root {
+  --bg: #1A2035;
+  --surface: #252c48; /* Slightly lighter surface for cards */
+  --surface-alpha: rgba(37, 44, 72, 0.8);
+  --border-color: rgba(160, 210, 235, 0.15);
+  --accent-1: #A0D2EB; /* Light blue */
+  --accent-2: #E5B3BB; /* Soft pink */
+  --text-color: #FFFFFF;
+  --text-muted: #a9b5d1; /* Softer muted text */
+  --radius-lg: 16px;
+  --radius-md: 12px;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --transition: 240ms ease-in-out;
+  font-family: "Vazir", "Tahoma", system-ui, -apple-system;
+}
+
+/* =================================================================
+   BASE & GENERAL STYLES
+   ================================================================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text-color);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.section {
+  padding: 4rem 0;
+}
+
+.section-title {
+  margin-bottom: 3rem;
+  color: var(--accent-1);
+  font-size: 2.2rem;
+  text-align: center;
+  font-weight: 800;
+}
+
+/* =================================================================
+   NAVIGATION BAR
+   ================================================================= */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(26, 32, 53, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+
+.logo h2 {
+  font-size: 1.6rem;
+  color: var(--accent-1);
+  font-weight: 800;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.nav-links a {
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-md);
+  color: var(--text-color);
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--accent-1);
+  background: var(--surface);
+}
+
+/* Hamburger Menu (Pure CSS) */
+#hamburger-toggle { display: none; }
+.hamburger-menu { display: none; font-size: 2rem; cursor: pointer; user-select: none; }
+
+/* =================================================================
+   BUTTONS & CTAs
+   ================================================================= */
+.cta-primary, .cta-secondary, .btn-ghost {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  transition: all 0.2s ease-out;
+}
+
+.cta-primary {
+  background: var(--accent-1);
+  color: var(--bg) !important;
+  box-shadow: 0 8px 28px rgba(160, 210, 235, 0.1);
+}
+
+.cta-primary:hover {
+  transform: translateY(-4px);
+  filter: brightness(1.15);
+  box-shadow: 0 12px 35px rgba(160, 210, 235, 0.2);
+}
+
+.cta-secondary {
+  background: var(--surface);
+  border: 1px solid var(--border-color);
+  color: var(--accent-1) !important;
+}
+
+.cta-secondary:hover {
+  transform: translateY(-3px);
+  background: rgba(160, 210, 235, 0.1);
+  border-color: rgba(160, 210, 235, 0.3);
+}
+
+.btn-ghost {
+  border: 1px solid var(--accent-1);
+  color: var(--accent-1) !important;
+  background: transparent !important;
+}
+
+.btn-ghost:hover {
+  background: var(--accent-1) !important;
+  color: var(--bg) !important;
+}
+
+/* =================================================================
+   HERO SECTION (for index.html)
+   ================================================================= */
+.hero {
+  padding: 5rem 0;
+  text-align: right;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.hero-title {
+  font-size: 3rem;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+  color: #fff;
+  font-weight: 800;
+}
+
+.hero-title .brand {
+  color: var(--accent-2);
+}
+
+.hero-desc {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  max-width: 500px;
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.hero-visual img {
+  border-radius: var(--radius-lg);
+  box-shadow: 0 25px 60px -15px var(--shadow-color);
+  /* این تصویر همان hero-bg.jpg شماست که در بخش دیگری از کد استفاده شده بود */
+  /* اطمینان حاصل کنید مسیر `../img/hero-bg.jpg` درست است */
+}
+
+/* =================================================================
+   FEATURES & EVENT CARDS
+   ================================================================= */
+.features-grid, .events-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.features-grid {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.events-grid {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.feature, .event-card {
+  background: var(--surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  transition: var(--transition);
+  background-image: radial-gradient(circle at top right, rgba(160, 210, 235, 0.05), transparent 40%);
+  display: flex;
+  flex-direction: column;
+}
+
+.feature:hover, .event-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px -20px var(--shadow-color);
+  border-color: rgba(160, 210, 235, 0.3);
+}
+
+.feature {
+  padding: 2rem;
+  text-align: center;
+}
+
+.feature .icon {
+  font-size: 2rem;
+  color: var(--accent-2);
+  margin-bottom: 1rem;
+}
+
+.event-card {
+  padding: 0;
+  overflow: hidden;
+}
+
+.event-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.event-body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1; /* Makes the card body grow to fill space */
+}
+
+.event-body h4 { font-size: 1.2rem; }
+
+.event-meta {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.event-cta {
+  margin-top: auto; /* Pushes CTAs to the bottom */
+  padding-top: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.event-cta a {
+    flex: 1;
+    text-align: center;
+}
+
+/* =================================================================
+   FORM STYLES (for login, register, etc.)
+   ================================================================= */
+.form-container {
+  max-width: 500px;
+  margin: 4rem auto;
+  padding: 2.5rem;
+  background-color: var(--surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--accent-1);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  font-family: 'Vazir', sans-serif;
+  background-color: var(--bg);
+  color: var(--text-color);
+  transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--accent-1);
+  box-shadow: 0 0 0 3px rgba(160, 210, 235, 0.2);
+}
+
+.form-container .cta-primary {
+    width: 100%;
+}
+
+.form-switch {
+  text-align: center;
+  margin-top: 1.5rem;
+  color: var(--text-muted);
+}
+.form-switch a {
+    color: var(--accent-1);
+    font-weight: 700;
+}
+
+/* =================================================================
+   EVENT DETAIL PAGE
+   ================================================================= */
+.event-detail-banner {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  margin-bottom: 2rem;
+  box-shadow: 0 15px 40px -10px var(--shadow-color);
+}
+
+.event-detail-title {
+  font-size: 2.8rem;
+  margin-bottom: 2.5rem;
+}
+
+.event-detail-content {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 2rem;
+}
+
+.event-main-info h3 {
+  border-bottom: 2px solid var(--accent-2);
+  padding-bottom: 0.5rem;
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: var(--accent-1);
+}
+
+.event-sidebar-info {
+  background-color: var(--surface);
+  border: 1px solid var(--border-color);
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  height: fit-content; /* Sits nicely */
+  position: sticky;
+  top: 100px; /* Navbar height + padding */
+}
+
+.event-sidebar-info h4 {
+  margin-top: 0;
+  border-bottom: 2px solid var(--accent-1);
+  padding-bottom: 0.5rem;
+  color: var(--accent-1);
+}
+
+.event-sidebar-info ul {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.event-sidebar-info li {
+  margin-bottom: 0.75rem;
+  color: var(--text-muted);
+}
+.event-sidebar-info li strong {
+    color: var(--text-color);
+    margin-left: 0.5rem;
+}
+
+
+/* =================================================================
+   FOOTER
+   ================================================================= */
+.footer {
+  padding: 2.5rem 0;
+  margin-top: 4rem;
+  border-top: 1px solid var(--border-color);
+  color: var(--text-muted);
+  text-align: center;
+}
+/* ===============================
+      MOBILE NAVIGATION
+      Pure CSS + Media Query
+   =============================== */
+
+@media (max-width: 768px) {
+
+  /* دکمه همبرگری فقط در موبایل */
+  .hamburger-menu {
+    display: block;
+    font-size: 2rem;
+    cursor: pointer;
+    user-select: none;
+    color: var(--accent-1);
+    transition: transform 0.3s ease;
+  }
+
+  /* چرخش آیکون همبرگری هنگام باز شدن */
+  #hamburger-toggle:checked + .hamburger-menu {
+    transform: rotate(90deg);
+  }
+
+  /* مخفی کردن منوی اصلی در موبایل */
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+
+    background-color: var(--bg);
+    border-bottom: 1px solid var(--border-color);
+
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    overflow: hidden;
+
+    max-height: 0;    /* منو بسته */
+    padding: 0;
+
+    transition: max-height 0.45s ease, padding 0.3s ease;
+  }
+
+  /* آیتم‌های منو */
+  .nav-links a {
+    width: 100%;
+    padding: 0.9rem 0;
+    text-align: center;
+
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+  }
+
+  /* باز شدن منو */
+  #hamburger-toggle:checked ~ .nav-links {
+    max-height: 420px;  /* ارتفاع کافی */
+    padding: 1rem 0;
+  }
+
+  /* ظاهر شدن مرحله‌ای آیتم‌ها */
+  #hamburger-toggle:checked ~ .nav-links a {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* افکت Cascade (تأخیر انیمیشن) */
+  .nav-links a:nth-child(1) { transition-delay: 0.05s; }
+  .nav-links a:nth-child(2) { transition-delay: 0.10s; }
+  .nav-links a:nth-child(3) { transition-delay: 0.15s; }
+  .nav-links a:nth-child(4) { transition-delay: 0.20s; }
+  .nav-links a:nth-child(5) { transition-delay: 0.25s; }
+  .nav-links a:nth-child(6) { transition-delay: 0.30s; }
+
+}
+/*  css relative to JS
+*/
+/* =================================================================
+    FORM VALIDATION STYLES
+    ================================================================= */
+.error-message {
+    color: #ff5252; /* Bright Red color for errors */
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    font-weight: 500;
+    direction: rtl; /* Ensure correct text direction */
+}
+/* ================================================================
+   SLIDER — Clean & Optimized Rewrite
+   ================================================================ */
+.slider-container {
+    position: relative;
+    width: 100%;
+    height: 380px;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 15px 40px -10px var(--shadow-color);
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+    object-fit:fill; /* عکس کامل دیده میشه */
+    background: var(--surface);
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+/* Buttons (همان قبلی) */
+.prev-btn, .next-btn {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    padding: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    z-index: 10;
+    transform: translateY(-50%);
+    transition: 0.3s;
+}
+
+.prev-btn { right: 0; }
+.next-btn { left: 0; }
+
+.prev-btn:hover, .next-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+/* Dots */
+.dot-indicators {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.dot {
+    height: 10px;
+    width: 10px;
+    background: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 4px;
+    cursor: pointer;
+}
+
+.dot.active {
+    background: var(--accent-1);
+}
+/* تنظیم ریسپانسیو برای موبایل */
+@media (max-width: 768px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+    }
+    .slider-container {
+        height: 250px;
+        margin-top: 2rem;
+    }
+}
+/* =================================================================
+    COUNTDOWN STYLES
+    ================================================================= */
+.countdown-wrapper {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.countdown-wrapper h4 {
+    color: var(--accent-2);
+    margin-bottom: 1.5rem;
+    border-bottom: none;
+    text-align: center;
+}
+
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    direction: ltr; /* نمایش اعداد از چپ به راست */
+}
+
+.countdown-box {
+    background-color: var(--bg);
+    padding: 0.5rem 0.5rem;
+    border-radius: var(--radius-md);
+    min-width: 55px;
+    line-height: 1.2;
+    text-align: center;
+    border: 1px solid var(--border-color);
+}
+
+.countdown-value {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--accent-1);
+    display: block;
+}
+
+.countdown-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 3px;
+    display: block;
+}
+
+.event-passed-message {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--accent-2); 
+    padding: 1rem;
+    display: block;
+    text-align: center;
+}
+
+/* =================================================================
+   THEME STYLES (تم روشن)
+   ================================================================= */
+:root.light-theme {
+    --bg: #e9edf1; /* پس‌زمینه روشن */
+    --surface: #FFFFFF; /* سطح کارت‌ها و نوار ناوبری */
+    --surface-alpha: rgba(255, 255, 255, 0.8);
+    --border-color: rgba(0, 0, 0, 0.1);
+    --accent-1: #76b7d5; /* آبی قوی */
+    --accent-2: #cf74eb; /* قرمز */
+    --text-color: #1A2035; /* متن تیره */
+    --text-muted: #52637D; /* متن خاکستری */
+    --shadow-color: rgba(0, 0, 0, 0.15);
+}
+
+/* استایل دکمه اصلی در تم روشن */
+.light-theme .cta-primary {
+    background: var(--accent-1);
+    color: var(--surface) !important;
+    box-shadow: 0 8px 28px rgba(26, 117, 159, 0.1);
+}
+.hero-title
+{
+  color: #a2b9dc;
+}
+.light-theme .cta-primary:hover {
+    box-shadow: 0 12px 35px rgba(26, 117, 159, 0.2);
+}
+
+
+/* ================================================================
+   EVENT CARD COUNTDOWN STYLES — Responsive & Animated
+================================================================= */
+.event-card .countdown-wrapper {
+    margin-bottom: 1rem;
+    padding: 0.5rem 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.event-card .countdown-wrapper h4 {
+    color: var(--accent-2);
+    margin-bottom: 0.8rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+.event-card .countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 0.4rem;
+    direction: ltr; /* اعداد از چپ به راست */
+    flex-wrap: wrap;
+}
+
+.event-card .countdown-box {
+    background-color: var(--bg);
+    padding: 0.35rem 0.6rem;
+    border-radius: var(--radius-md);
+    min-width: 45px;
+    line-height: 1.2;
+    text-align: center;
+    border: 1px solid var(--border-color);
+    font-size: 0.85rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-card .countdown-box:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(160, 210, 235, 0.2);
+}
+
+.event-card .countdown-value {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--accent-1);
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.event-card .countdown-label {
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    margin-top: 2px;
+    display: block;
+}
+
+.event-passed-message {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--accent-2); 
+    padding: 0.5rem 0;
+    display: block;
+    text-align: center;
+}
+
+/* Responsive adjustments for small screens */
+@media (max-width: 768px) {
+    .event-card .countdown-timer {
+        gap: 0.3rem;
+    }
+    .event-card .countdown-box {
+        min-width: 35px;
+        padding: 0.25rem 0.5rem;
+        font-size: 0.75rem;
+    }
+    .event-card .countdown-value {
+        font-size: 0.9rem;
+    }
+    .event-card .countdown-label {
+        font-size: 0.6rem;
+    }
+}
+.tab-switcher {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #ddd;
+}
+.tab-switcher button {
+  flex: 1;
+  background: none;
+  border: none;
+  font-weight: 600;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.tab-switcher button.active {
+  border-bottom: 3px solid #0077cc;
+  color: #0077cc;
+}
+.tab-form { display: none; }
+.tab-form.active { display: block; }
+
+/* ===========================
+   Footer Styles - Modern & Clean
+=========================== */
+.footer {
+  background-color: #1a1a1a; /* رنگ پس‌زمینه تاریک */
+  color: #f5f5f5;
+  padding: 3rem 1.5rem 1.5rem;
+  font-family: 'Vazir', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.footer a {
+  color: #f5f5f5;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.footer a:hover {
+  color: #ffb400; /* رنگ هایلایت هنگام هاور */
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+/* ---------- About Section ---------- */
+.footer-about h4 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.footer-about p {
+  color: #ccc;
+}
+
+/* ---------- Links Section ---------- */
+.footer-links h4 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.6rem;
+}
+
+/* ---------- Social Section ---------- */
+.footer-social h4 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.footer-social .social-icons a {
+  display: inline-block;
+  font-size: 1.5rem;
+  margin-right: 0.8rem;
+  padding: 0.4rem;
+  border-radius: 50%;
+  background-color: #333;
+  transition: all 0.3s ease;
+}
+
+.footer-social .social-icons a:hover {
+  background-color: #ffb400;
+  color: #1a1a1a;
+  transform: translateY(-3px);
+}
+
+/* ---------- Newsletter Section ---------- */
+.footer-newsletter h4 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.footer-newsletter p {
+  color: #ccc;
+  margin-bottom: 0.5rem;
+}
+
+.footer-newsletter form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.footer-newsletter input[type="email"] {
+  padding: 0.6rem 0.8rem;
+  flex: 1;
+  border: none;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+}
+
+.footer-newsletter button {
+  padding: 0.6rem 1rem;
+  border: none;
+  background-color: #ffb400;
+  color: #1a1a1a;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.footer-newsletter button:hover {
+  background-color: #ffa500;
+  transform: translateY(-2px);
+}
+
+/* ---------- Footer Bottom ---------- */
+.footer-bottom {
+  border-top: 1px solid #444;
+  padding-top: 1rem;
+  font-size: 0.85rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  color: #ccc;
+}
+
+/* ---------- Responsive Adjustments ---------- */
+@media (max-width: 768px) {
+  .footer-newsletter form {
+    flex-direction: column;
+  }
+  .footer-newsletter input[type="email"] {
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+  }
+  .footer-newsletter button {
+    border-radius: 5px;
+  }
+}

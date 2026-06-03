@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>رویدادلند — همه رویدادها</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+  <header class="navbar">
+    <div class="container nav-inner">
+
+      <!-- لوگو -->
+      <div class="logo">
+        <h2>رویدادلند</h2>
+      </div>
+
+      <!-- دکمه تغییر تم -->
+      <button id="themeToggle" class="btn-ghost" title="تغییر تم (تاریک/روشن)"
+        style="margin-right: auto; margin-left: 1rem; border: none; font-size: 1.5rem; padding: 0.5rem 0.75rem;">
+        🌙
+      </button>
+
+      <input type="checkbox" id="hamburger-toggle">
+      <label for="hamburger-toggle" class="hamburger-menu">☰</label>
+
+      <nav class="nav-links">
+        <a href="index.html">خانه</a>
+        <a href="events.html">رویدادها</a>
+        <a href="about.html">درباره ما</a>
+        <a href="survey.html">نظرسنجی</a>
+        <a href="login.html" class="btn-ghost active">ورود</a>
+        <a href="register.html" class="cta-primary">ثبت‌نام</a>
+      </nav>
+    </div>
+
+  </header>
+
+  <main class="container">
+    <section class="section">
+      <h1 class="section-title">تمام رویدادها</h1>
+      <div class="events-grid">
+
+        <!-- کارت 1 -->
+        <article class="event-card">
+          <div class="countdown-wrapper" data-target-date="2025-12-16T18:00:00"></div>
+          <img src="img/frontend.jpg" alt="وبینار طراحی فرانت‌اند">
+          <div class="event-body">
+            <h4>وبینار طراحی فرانت‌اند</h4>
+            <div class="event-meta">۲۵ آذر ۱۴۰۴ — آنلاین</div>
+            <div class="event-cta">
+              <a class="cta-secondary" href="event_detail.html">جزئیات</a>
+              <a class="cta-primary" href="register.html">ثبت‌نام</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- کارت 2 -->
+        <article class="event-card">
+          <div class="countdown-wrapper" data-target-date="2025-12-26T16:00:00"></div>
+          <img src="img/html,css.jpg" alt="کارگاه HTML & CSS">
+          <div class="event-body">
+            <h4>کارگاه HTML & CSS</h4>
+            <div class="event-meta">۵ دی ۱۴۰۴ — حضوری</div>
+            <div class="event-cta">
+              <a class="cta-secondary" href="event_detail.html">جزئیات</a>
+              <a class="cta-primary" href="register.html">ثبت‌نام</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- کارت 3 -->
+        <article class="event-card">
+          <div class="countdown-wrapper" data-target-date="2026-01-05T09:00:00"></div>
+          <img src="img/tech.jpg" alt="همایش بزرگ فناوری">
+          <div class="event-body">
+            <h4>همایش بزرگ فناوری</h4>
+            <div class="event-meta">۱۵ بهمن ۱۴۰۴ — سالن همایش</div>
+            <div class="event-cta">
+              <a class="cta-secondary" href="event_detail.html">جزئیات</a>
+              <a class="cta-primary" href="register.html">ثبت‌نام</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- کارت 4 -->
+        <article class="event-card">
+          <div class="countdown-wrapper" data-target-date="2026-01-12T14:00:00"></div>
+          <img src="img/python.jpg" alt="کارگاه پایتون">
+          <div class="event-body">
+            <h4>کارگاه برنامه‌نویسی پایتون</h4>
+            <div class="event-meta">۲۲ بهمن ۱۴۰۴ — آنلاین</div>
+            <div class="event-cta">
+              <a class="cta-secondary" href="event_detail.html">جزئیات</a>
+              <a class="cta-primary" href="register.html">ثبت‌نام</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- کارت 5 -->
+        <article class="event-card">
+          <div class="countdown-wrapper" data-target-date="2026-01-20T11:00:00"></div>
+          <img src="img/security.jpg" alt="همایش امنیت">
+          <div class="event-body">
+            <h4>همایش امنیت و شبکه</h4>
+            <div class="event-meta">۳۰ بهمن ۱۴۰۴ — حضوری</div>
+            <div class="event-cta">
+              <a class="cta-secondary" href="event_detail.html">جزئیات</a>
+              <a class="cta-primary" href="register.html">ثبت‌نام</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container"
+      style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+      <div>© ۱۴۰۴ - همه حقوق برای رویدادلند محفوظ است.</div>
+      <div style="direction: ltr;">info@royaadeland.ir</div>
+    </div>
+  </footer>
+  <script src="index.js"></script>
+
+</body>
+
+</html>
